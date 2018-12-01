@@ -5,7 +5,7 @@ from time import sleep          # this lets us have a time delay
 port = 7                        # set BCM7 (pin 26) as port (7)
 GPIO.setboard(GPIO.PCPCPLUS)    # Orange Pi PC board
 GPIO.setmode(GPIO.BOARD)        # set up BOARD BCM numbering
-
+GPIO.setwarnings(False)         # just for ignore channel already use warning
 GPIO.setup(port, GPIO.OUT)      # set BCM7 (pin 26) as an output (LED)
 
 date = datetime.datetime.now()
@@ -32,5 +32,5 @@ try:
 
 except KeyboardInterrupt:
         GPIO.output(port, 0)       # set port/pin value to 1/HIGH/True
-        print "CTRL-C bye :) "
+        print "TRL-C bye :) "
         quit()
