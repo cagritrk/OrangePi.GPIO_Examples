@@ -25,6 +25,7 @@ while True:
     date = datetime.datetime.now()
     if int(date.minute) == minute:
         GPIO.output(port, 0)       # set port/pin value to 1/HIGH/True
+        print "bye :) "
         quit()
     else:
         GPIO.output(port, 1)       # set port/pin value to 0/LOW/False
