@@ -9,8 +9,6 @@ GPIO.setwarnings(False)         # just for ingnore the bord already using warnin
 
 GPIO.setup(port, GPIO.OUT)      # set BCM7 (pin 26) as an output (LED)
 
-print "Press CTRL+C to exit"
-
 date = datetime.datetime.now()
 
 print "Current time is ", date.hour , ":" , date.minute
@@ -22,6 +20,7 @@ else:
     hour = int(date.hour)
 print "It`ll be exit and set LED OFF automaticly on ", hour , ":" , minute
 
+print "Press CTRL+C to exit"
 while True:
     date = datetime.datetime.now()
     if int(date.minute) == minute:
