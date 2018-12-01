@@ -21,11 +21,17 @@ else:
 print "It`ll be exit and set LED OFF automaticly on ", hour , ":" , minute
 
 print "Press CTRL+C to exit"
-while True:
-    date = datetime.datetime.now()
-    if int(date.minute) == minute:
+try:
+    while True:
+        date = datetime.datetime.now()
+        if int(date.minute) == minute:
+            GPIO.output(port, 0)       # set port/pin value to 1/HIGH/True
+            print "bye :) "
+            quit()
+        else:
+            GPIO.output(port, 1)       # set port/pin value to 0/LOW/False
+
+except KeyboardInterrupt:
         GPIO.output(port, 0)       # set port/pin value to 1/HIGH/True
-        print "bye :) "
+        print "CTRL-C bye :) "
         quit()
-    else:
-        GPIO.output(port, 1)       # set port/pin value to 0/LOW/False
